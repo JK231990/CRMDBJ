@@ -14,15 +14,15 @@ import { Imports } from '@/pages/Imports';
 import { Settings } from '@/pages/Settings';
 import { UsersPermissions } from '@/pages/UsersPermissions';
 import { AuditLog } from '@/pages/AuditLog';
-import { ComingSoon } from '@/pages/ComingSoon';
 import { Conversations } from '@/pages/Conversations';
+import { Forms } from '@/pages/Forms';
+import { Files } from '@/pages/Files';
+import { Integrations } from '@/pages/Integrations';
 import { AiAssistant } from '@/pages/AiAssistant';
 import { Campaigns } from '@/pages/Campaigns';
 import { Analytics } from '@/pages/Analytics';
 import { LoadingPage } from '@/components/ui';
-import {
-  FileText, FolderOpen, Plug,
-} from 'lucide-react';
+
 
 function AppContent() {
   const { session, profile, loading } = useAuth();
@@ -49,12 +49,12 @@ function AppContent() {
       case 'users': return <UsersPermissions />;
       case 'audit': return <AuditLog />;
       case 'conversations': return <Conversations />;
-      case 'forms': return <ComingSoon title="Forms" phase={2} icon={FileText} description="Connect Jotform, map questions to CRM fields, and import submissions as leads or enquiries." />;
+      case 'forms': return <Forms />;
       case 'campaigns': return <Campaigns />;
       case 'analytics': return <Analytics />;
       case 'ai-assistant': return <AiAssistant />;
-      case 'files': return <ComingSoon title="Files" phase={1} icon={FolderOpen} description="Secure file management with customer folders, order folders, previews, and version history." />;
-      case 'integrations': return <ComingSoon title="Integrations" phase={2} icon={Plug} description="Connect Google, Jotform, WhatsApp Business, Meta, LinkedIn, TikTok, and X/Twitter through official APIs." />;
+      case 'files': return <Files />;
+      case 'integrations': return <Integrations />;
       default: return <Dashboard />;
     }
   };

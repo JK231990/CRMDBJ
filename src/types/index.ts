@@ -376,3 +376,66 @@ export interface Campaign {
   updated_at: string;
   creator?: Profile | null;
 }
+
+export interface Form {
+  id: string;
+  organisation_id: string;
+  name: string;
+  source: string;
+  external_id: string | null;
+  status: string;
+  field_mapping: Record<string, unknown>;
+  last_synced_at: string | null;
+  submission_count: number;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface FormSubmission {
+  id: string;
+  organisation_id: string;
+  form_id: string;
+  customer_id: string | null;
+  lead_id: string | null;
+  raw_data: Record<string, unknown>;
+  mapped_data: Record<string, unknown>;
+  status: string;
+  source_name: string | null;
+  submitted_at: string;
+  created_at: string;
+  form?: Form | null;
+  customer?: Customer | null;
+}
+
+export interface FileEntry {
+  id: string;
+  organisation_id: string;
+  name: string;
+  type: string;
+  mime_type: string | null;
+  size_bytes: number;
+  storage_path: string | null;
+  thumbnail_url: string | null;
+  customer_id: string | null;
+  order_id: string | null;
+  uploaded_by: string | null;
+  tags: string[];
+  is_public: boolean;
+  created_at: string;
+  customer?: Customer | null;
+  uploader?: Profile | null;
+}
+
+export interface Integration {
+  id: string;
+  organisation_id: string;
+  platform: string;
+  status: string;
+  account_name: string | null;
+  account_email: string | null;
+  connected_at: string | null;
+  last_synced_at: string | null;
+  metadata: Record<string, unknown>;
+  created_at: string;
+  updated_at: string;
+}
