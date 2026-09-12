@@ -299,3 +299,80 @@ export const ROLE_LABELS: Record<UserRole, string> = {
   marketing_employee: 'Marketing Employee',
   accountant: 'Accountant',
 };
+
+export interface Conversation {
+  id: string;
+  organisation_id: string;
+  customer_id: string | null;
+  channel: string;
+  external_id: string | null;
+  subject: string | null;
+  status: string;
+  priority: string;
+  assigned_to: string | null;
+  last_message_at: string | null;
+  last_message_preview: string | null;
+  unread_count: number;
+  metadata: Record<string, unknown> | null;
+  created_at: string;
+  updated_at: string;
+  customer?: Customer | null;
+  assignee?: Profile | null;
+}
+
+export interface Message {
+  id: string;
+  organisation_id: string;
+  conversation_id: string;
+  customer_id: string | null;
+  sender_type: string;
+  sender_name: string | null;
+  body: string | null;
+  attachments: unknown[];
+  is_read: boolean;
+  external_id: string | null;
+  created_at: string;
+}
+
+export interface AiChatSession {
+  id: string;
+  organisation_id: string;
+  user_id: string;
+  title: string;
+  provider: string;
+  context: Record<string, unknown> | null;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface AiChatMessage {
+  id: string;
+  organisation_id: string;
+  session_id: string;
+  role: string;
+  content: string;
+  metadata: Record<string, unknown> | null;
+  created_at: string;
+}
+
+export interface Campaign {
+  id: string;
+  organisation_id: string;
+  name: string;
+  description: string | null;
+  channel: string;
+  status: string;
+  segment_rules: Record<string, unknown>;
+  audience_count: number;
+  template_subject: string | null;
+  template_body: string | null;
+  sent_count: number;
+  opened_count: number;
+  clicked_count: number;
+  scheduled_at: string | null;
+  sent_at: string | null;
+  created_by: string | null;
+  created_at: string;
+  updated_at: string;
+  creator?: Profile | null;
+}

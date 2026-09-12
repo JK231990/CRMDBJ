@@ -76,7 +76,7 @@ export function Layout({ currentPage, onNavigate, children }: LayoutProps) {
               >
                 <Icon size={18} className="flex-shrink-0" />
                 <span className="flex-1 text-left">{item.label}</span>
-                {item.phase > 1 && (
+                {item.phase > 1 && !['conversations', 'campaigns', 'analytics', 'ai-assistant'].includes(item.id) && (
                   <span className={cn(
                     'text-[10px] px-1.5 py-0.5 rounded-full font-medium',
                     active ? 'bg-white/20 text-white' : 'bg-surface-light text-ink-muted'

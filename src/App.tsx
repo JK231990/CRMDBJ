@@ -15,10 +15,13 @@ import { Settings } from '@/pages/Settings';
 import { UsersPermissions } from '@/pages/UsersPermissions';
 import { AuditLog } from '@/pages/AuditLog';
 import { ComingSoon } from '@/pages/ComingSoon';
+import { Conversations } from '@/pages/Conversations';
+import { AiAssistant } from '@/pages/AiAssistant';
+import { Campaigns } from '@/pages/Campaigns';
+import { Analytics } from '@/pages/Analytics';
 import { LoadingPage } from '@/components/ui';
 import {
-  MessageSquare, FileText, Megaphone, BarChart3, Bot,
-  FolderOpen, Plug,
+  FileText, FolderOpen, Plug,
 } from 'lucide-react';
 
 function AppContent() {
@@ -45,11 +48,11 @@ function AppContent() {
       case 'settings': return <Settings />;
       case 'users': return <UsersPermissions />;
       case 'audit': return <AuditLog />;
-      case 'conversations': return <ComingSoon title="Conversations" phase={3} icon={MessageSquare} description="A unified inbox for Gmail, WhatsApp, Facebook, Instagram, Jotform, and website enquiries — all in one place." />;
+      case 'conversations': return <Conversations />;
       case 'forms': return <ComingSoon title="Forms" phase={2} icon={FileText} description="Connect Jotform, map questions to CRM fields, and import submissions as leads or enquiries." />;
-      case 'campaigns': return <ComingSoon title="Campaigns" phase={5} icon={Megaphone} description="Create dynamic customer segments and draft marketing campaigns with consent enforcement." />;
-      case 'analytics': return <ComingSoon title="Analytics" phase={5} icon={BarChart3} description="Advanced analytics: sales trends, conversion rates, customer lifetime value, and AI usage insights." />;
-      case 'ai-assistant': return <ComingSoon title="AI Assistant" phase={4} icon={Bot} description="A chatbot that searches and analyses CRM data using natural language, powered by OpenAI, Google Gemini, or Anthropic Claude." />;
+      case 'campaigns': return <Campaigns />;
+      case 'analytics': return <Analytics />;
+      case 'ai-assistant': return <AiAssistant />;
       case 'files': return <ComingSoon title="Files" phase={1} icon={FolderOpen} description="Secure file management with customer folders, order folders, previews, and version history." />;
       case 'integrations': return <ComingSoon title="Integrations" phase={2} icon={Plug} description="Connect Google, Jotform, WhatsApp Business, Meta, LinkedIn, TikTok, and X/Twitter through official APIs." />;
       default: return <Dashboard />;
