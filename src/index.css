@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: #F7F7F7;
+    color: #111111;
+    line-height: 1.5;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    font-weight: 600;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn bg-swiss-red text-white hover:bg-swiss-red-dark active:scale-[0.98];
+  }
+  .btn-secondary {
+    @apply btn bg-white text-ink border border-surface-border hover:bg-surface-light active:scale-[0.98];
+  }
+  .btn-ghost {
+    @apply btn text-ink-secondary hover:bg-surface-light hover:text-ink;
+  }
+  .btn-danger {
+    @apply btn bg-error text-white hover:bg-error/90 active:scale-[0.98];
+  }
+
+  .card {
+    @apply bg-white rounded-xl border border-surface-border shadow-card;
+  }
+  .card-hover {
+    @apply card transition-all duration-200 hover:shadow-card-hover;
+  }
+
+  .input {
+    @apply w-full px-3 py-2 rounded-xl border border-surface-border bg-white text-ink text-sm placeholder:text-ink-muted focus:outline-none focus:border-swiss-red focus:ring-2 focus:ring-swiss-red/10 transition-all;
+  }
+  .label {
+    @apply block text-sm font-medium text-ink mb-1.5;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium;
+  }
+  .badge-success { @apply badge bg-success-light text-success; }
+  .badge-warning { @apply badge bg-warning-light text-warning; }
+  .badge-error { @apply badge bg-error-light text-error; }
+  .badge-neutral { @apply badge bg-surface-light text-ink-secondary; }
+  .badge-red { @apply badge bg-swiss-red-50 text-swiss-red; }
+
+  .nav-item {
+    @apply flex items-center gap-3 px-3 py-2 rounded-xl text-sm font-medium text-ink-secondary transition-all duration-150 cursor-pointer hover:bg-surface-light hover:text-ink;
+  }
+  .nav-item-active {
+    @apply nav-item bg-swiss-red text-white hover:bg-swiss-red hover:text-white;
+  }
+
+  .stat-card {
+    @apply card p-5 flex flex-col gap-1;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #D0D0D0;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B0B0B0;
+}
+
+/* Dark mode */
+.dark body {
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+}
+.dark .card {
+  background-color: #2a2a2a;
+  border-color: #3a3a3a;
+}
+.dark .input {
+  background-color: #2a2a2a;
+  border-color: #3a3a3a;
+  color: #f0f0f0;
+}
+.dark .btn-secondary {
+  background-color: #2a2a2a;
+  color: #f0f0f0;
+  border-color: #3a3a3a;
+}
+.dark .surface-light,
+.dark .nav-item:hover {
+  background-color: #333;
+}
